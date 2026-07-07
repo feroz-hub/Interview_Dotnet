@@ -1,0 +1,44 @@
+## Top-level gitignore for a .NET/Visual Studio project
+
+# Build output
+bin/
+obj/
+out/
+
+# Visual Studio / Rider / VS Code
+.vs/
+.vscode/
+.idea/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet packages
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+
+# Rider
+*.sln.iml
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Publish outputs
+publish/
+*.publishsettings
+
+# Generated files
+*.g.cs
+*GeneratedMSBuildEditorConfig.editorconfig
+
+# JetBrains Rider local history
+.idea/*/localHistory/
