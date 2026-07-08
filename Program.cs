@@ -9,7 +9,14 @@ internal static class Program
     {
         var component = new SbomComponent("Newtonsoft.Json", "13.0.1", "nuget", "MIT");
 
-        ILifecycleProvider lifecycleProvider = new SimulatedApiLifecycleProvider();
+        string providerName = args.Length > 0 ? args[0].ToLowerInvariant() : "local";
+        ILifecycleProvider lifecycleProvider = providerName switch
+        {
+            "local" => new LocalLifecycleProvider(),
+            "api" => new SimulatedApiLifecycleProvider(),
+            "cached" => new CachedLifecycleProvider(),
+            _ => throw new ArgumentException($"Unknown Provider:{providerName}"),
+        };
         var analysisService = new ComponentAnalysisService(lifecycleProvider);
         await analysisService.AnalyseAsync(component, CancellationToken.None);
 
