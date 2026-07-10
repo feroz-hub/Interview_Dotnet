@@ -1,0 +1,3 @@
+Newtonsoft.Json=Active
+Serilog=Active
+Legacy.Package=End of Life
